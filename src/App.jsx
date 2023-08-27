@@ -13,7 +13,7 @@ function App() {
             url = "https://api.jikan.moe/v4/top/anime"
         }
         else {
-            url = `https://api.jikan.moe/v4/anime?q=${search}&order_by=title&sort=asc&limit=20&sfw=true`;
+            url = `https://api.jikan.moe/v4/anime?q=${search}&sort=asc&limit=20&sfw=true`;
         }
         const res = await fetch(url)
         const resData = await res.json();

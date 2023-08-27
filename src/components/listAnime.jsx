@@ -10,7 +10,7 @@ export function ListAnime(props) {
     <div className='container-list-animetop'>
       <Suspense fallback={<div>Cargado...</div>}>
         {data?.map((item) => (
-          <Link to={`/AnimeDetails/${item.mal_id}`} key={item.mal_id} onClick={ () => console.log("hola") } className='button-container-card' >
+          <Link to={`/AnimeDetails/${item.mal_id}`} key={item.mal_id} className='button-container-card' >
             <div className='card-anime'>
               <div className='card-anime-cabecera'>
                 <img className='card-anime-img' src={item.images.jpg.image_url} alt="" />
