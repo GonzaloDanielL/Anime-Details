@@ -5,23 +5,30 @@ import { useEffect, useState } from 'react'
 
 function App() {
     const [search, setsearch] = useState("");
+    const [loading, setLoading] = useState();
+    const [error, setError] = useState();
     const [animedata, setdata] = useState();
 
-    const getData = async () => {
+    async function getData() {
         let url
         if (search == "") {
             url = "https://api.jikan.moe/v4/top/anime"
-        }
+        }   
         else {
-            url = `https://api.jikan.moe/v4/anime?q=${search}&sort=asc&limit=20&sfw=true`;
+            url = `https://api.jikan.moe/v4/anime?q=${search}&sort=asc&limit=20&sfw=true`
         }
-        const res = await fetch(url)
-        const resData = await res.json();
-        setdata(resData.data)
+        await fetch(url)
+        .then((response) => response.json())
+        .then((data) => {setdata(data.data)})
+        .catch((error) => {console.log("Ocurrio un error! ",error); setError(error)})
+        .finally(() => {setLoading(false)})
     }
     useEffect(() => {
         getData()
     }, [search])
+
+    if (error) return "Ocurrio un error!";
+    if (loading) return "Cargando...";
 
     return (
         <div>

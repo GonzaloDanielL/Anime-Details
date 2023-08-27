@@ -6,17 +6,28 @@ import { Link } from 'react-router-dom'
 
 export function AnimeDetails() {
     const [anime, getAnime] = useState([]);
+    const [loading, setLoading] = useState();
+    const [error, setError] = useState();
     const { id } = useParams();
 
-    const getData = async () => {
-        const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
+    async function getData () {
+        await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
+
+        .then((response) => response.json())
+        .then((data) => {getAnime(data.data)})
+        .catch ((error) => {console.log("Ocurrio un error", error); setError(error);})
+        .finally (() => {setLoading(false);})
+/*         const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
         const resData = await res.json();
-        getAnime(resData.data)
+        getAnime(resData.data) */
     }
 
     useEffect(() => {
         getData()
     }, [])
+
+    if (loading) return "loading...";
+    if (error) return "Ocurrio un error!";
 
     if (anime.length != 0) {
         return (
