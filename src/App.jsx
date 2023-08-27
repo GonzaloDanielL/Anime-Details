@@ -13,7 +13,7 @@ function App() {
             url = "https://api.jikan.moe/v4/top/anime"
         }
         else {
-            url = `https://api.jikan.moe/v4/anime?sfw?q=${search}&limit=20`;
+            url = `https://api.jikan.moe/v4/anime?q=${search}&order_by=title&sort=asc&limit=20&sfw=true`;
         }
         const res = await fetch(url)
         const resData = await res.json();
@@ -23,7 +23,6 @@ function App() {
         getData()
     }, [search])
 
-
     return (
         <div>
             <header className='header-content'>
@@ -31,7 +30,7 @@ function App() {
                     <h1>AnimeInfo</h1>
                     <div className='nav-search'>
                         <label>Buscar: </label>
-                        <input type="text" onChange={(e) => setsearch(e.target.value)} />
+                        <input type="text" onChange={(e) => setsearch(e.target.value)}/>
                     </div>
                 </nav>
             </header>
@@ -39,8 +38,8 @@ function App() {
             <div className='main-container'>
                 <Routes>
                     <Route path="/" exact element={<ListAnime list={animedata} />} />
-                    <Route path="/listAnime" element={<ListAnime list={animedata} />} />
-                    <Route path="/animeDetails/:id" element={<AnimeDetails />} />
+                    <Route path="/listAnime" exact element={<ListAnime list={animedata} />} />
+                    <Route path="/animeDetails/:id" exact element={<AnimeDetails />} />
                 </Routes>
             </div>
         </div>

@@ -19,7 +19,6 @@ export function AnimeDetails() {
     }, [])
 
     if (anime.length != 0) {
-        console.log(anime);
         return (
             <div className="animeDetails-container">
                 <Link to="/listAnime" className="anDe-button"><TiArrowLeftThick /></Link>
