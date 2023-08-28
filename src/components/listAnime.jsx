@@ -18,12 +18,12 @@ export function ListAnime(props) {
               <div className='card-anime-body'>
                 <h2 className='card-anime-title'>{item.title}</h2>
                 <div className='card-anime-body-content'>
-                  <h3>Episodios: {item.episodes}</h3>
+                  <h3>Episodes: {item.episodes}</h3>
                   <h3>
-                    Genero: {<Generos list={item.genres}/>}
+                  Genres: {<Generos list={item.genres}/>}
                   </h3>
-                  <h3>Estado: {item.status}</h3>
-                  <h3>Puntuacion: {item.score}</h3>
+                  <h3>State: {item.status}</h3>
+                  <h3>Score: {item.score}</h3>
                 </div>
               </div>
             </div>
