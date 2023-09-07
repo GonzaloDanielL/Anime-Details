@@ -1,6 +1,8 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1>Anime Details</h1>
+<p>Proyecto personal creado en react que lista animes y sus detalles haciendo uso de la api Jikan </p>
+<img src="public/img1.png"/>
 
 Currently, two official plugins are available:
 

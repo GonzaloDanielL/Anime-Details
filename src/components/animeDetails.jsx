@@ -24,12 +24,13 @@ export function AnimeDetails() {
         getData()
     }, [])
 
+
     if (error) return "Ocurrio un error!";
 
     if (anime.length != 0) {
         return (
             <div className="animeDetails-container">
-                <Link to="/listAnime" className="anDe-button"><TiArrowLeftThick /></Link>
+
                 <div className="anDe-sub-container" key={anime.mal_id}>
                     <div className="anDe-cabecera">
                         <h1 className="anDe-title">{anime.title}</h1>
@@ -48,6 +49,8 @@ export function AnimeDetails() {
                         </div>
                         <h3>Title-English: <span>{anime.title_english}</span></h3>
                         <h3>Title-japonese: <span>{anime.title_japanese}</span></h3>
+                        <h3>Started: <span>{anime.aired.from}</span></h3>
+                        <h3>Culminated: <span>{anime.aired.to}</span></h3>
                         <h3>Episodes: <span>{anime.episodes}</span></h3>
                         <h3>Duration: <span>{anime.duration}</span></h3>
                         <h3>Streaming: <span>{<Generos list={anime.streaming} />}</span></h3>

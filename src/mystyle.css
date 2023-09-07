@@ -259,6 +259,10 @@ body::-webkit-scrollbar {
   font-family: 'Merriweather Sans', sans-serif;
 }
 
+:root {
+  --var-primary: rgb(134, 0, 223);
+}
+
 body {
   background-color: #ffffff;
 }
@@ -268,22 +272,25 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: aquamarine;
-  box-shadow: 0px 1px 5px rgba(108, 108, 108, 0.693);
+
 
   & .nav-container {
-    background-color: rgb(0, 255, 255);
+    background-color: var(--var-primary);
     display: flex;
     width: 100%;
-    height: 70px;
+    height: 80px;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
 
     & h1 {
-      color: rgb(255, 255, 255);
       flex: auto;
-      text-shadow: 1px 1px 2px rgb(0, 65, 77);
+      
+      & a{
+        text-decoration: none;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px rgb(0, 65, 77);
+      }
     }
 
     & .nav-search {
@@ -317,20 +324,22 @@ body {
 }
 
 /*===========> contenedor*/
-.main-container {
+.main {
   background-color: #ffffff;
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-  padding-top: 80px;
 }
- 
+
+.main-container {
+  height: 100vh;
+  padding-top: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 /*===========> list anime*/
 .container-list-animetop {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 60px;
   justify-items: center;
 
   & .button-container-card {
@@ -344,29 +353,29 @@ body {
 
     & .card-anime {
       height: 100%;
-      background-color: rgba(0, 255, 255, 0.412);
+      background-color: var(--var-primary);
       padding: 10px;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 10px;
+      box-shadow: 5px 10px 5px 2px rgba(0, 0, 0, 0.19), 0 10px 5px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
 
       & .card-anime-cabecera {
         background-color: rgb(255, 255, 255);
         display: flex;
         justify-content: center;
         padding: 10px;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
 
         & img {
           max-height: 300px;
-          border-radius: 10px;
+          border-radius: 5px;
         }
       }
 
       & .card-anime-body {
-        background-color: rgba(253, 253, 253, 0.886);
+        background-color: rgb(255, 255, 255);
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -394,40 +403,46 @@ body {
 /*===========> Anime Details*/
 
 .animeDetails-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 50px;
 
+
   & .anDe-button {
+    width: fit-content;
     position: sticky;
-    top: 20px;
-    margin-left: 50px;
+    top: 100px;
+    left: 0;
     font-size: 35px;
     background-color: transparent;
-    border: 2px solid rgb(0, 255, 255);
-    color: rgb(0, 255, 255);
+    border: 2px solid var(--var-primary);
+    color: var(--var-primary);
     border-radius: 10px;
     padding: 5px 15px 0 15px;
     transition: all 0.2s;
   }
 
   & .anDe-button:hover {
-    border: 2px solid rgb(0, 255, 255);
-    color: rgb(0, 255, 255);
-    background-color: rgba(0, 255, 255, 0.399);
+    border: 2px solid var(--var-primary);
+    color: var(--var-primary);
+    background-color: rgba(153, 0, 255, 0.399);
   }
 
   & .anDe-button:focus {
-    background-color: rgb(0, 255, 255);
+    background-color: var(--var-primary);
     color: #ffffff;
     border-color: #ffffff;
   }
 
   & .anDe-sub-container {
-    margin-left: 13%;
-    margin-right: 13%;
+    width: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 255, 255, 0.412);
+    background-color: rgba(149, 0, 255, 0.412);
     padding-top: 10px;
     border-radius: 20px;
 
@@ -449,8 +464,8 @@ body {
       & .anDe-title {
         font-size: 2rem;
         text-align: center;
-        color: rgb(0, 255, 255);
-        text-shadow: 1px 1px 1px rgb(0, 65, 77);
+        color: var(--var-primary);
+        text-shadow: 1px 1px 1px rgb(45, 0, 77);
       }
 
       & div {
@@ -494,10 +509,11 @@ body {
       & .anDe-des {
         display: flex;
         flex-direction: column;
+
         & h2 {
           font-size: 1.5rem;
-          color: rgb(0, 255, 255);
-          text-shadow: 1px 1px 1px rgb(0, 65, 77);
+          color: var(--var-primary);
+          text-shadow: 1px 1px 1px rgb(45, 0, 77);
         }
 
         & p {
@@ -532,8 +548,8 @@ body {
 
         & a {
           text-decoration: none;
-          color: rgb(0, 255, 255);
-          text-shadow: 1px 1px 1px rgb(0, 65, 77);
+          color: var(--var-primary);
+          text-shadow: 1px 1px 1px rgb(45, 0, 77);
           font-size: 1rem;
         }
       }
@@ -547,31 +563,32 @@ body {
 
     padding-bottom: 20px;
 
-    & .anDe-button{
-      top: 1px;
+    & .anDe-button {
+      top: 80px;
       margin-left: 15px;
       padding: 5px 10px 0 10px;
       font-size: 30px;
     }
 
-    & .anDe-sub-container{
+    & .anDe-sub-container {
       margin-left: 8%;
       margin-right: 8%;
 
-      & .anDe-cabecera{
+      & .anDe-cabecera {
         padding-left: 10px;
         padding-right: 10px;
-        & div{
+
+        & div {
           flex-direction: column;
 
-          & .anDe-trailer{
+          & .anDe-trailer {
             margin-left: 20px;
             margin-right: 20px;
           }
         }
       }
 
-      & .anDe-body{
+      & .anDe-body {
         padding-left: 35px;
         padding-right: 35px;
         max-width: 670px;
@@ -581,8 +598,10 @@ body {
 }
 
 @media (max-width: 700px) {
-  .main-container{
+  .main-container {
     padding-top: 110px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   .nav-container {
@@ -591,10 +610,9 @@ body {
     padding-top: 10px;
     gap: 10px;
     min-height: 100px;
-    background-color: rebeccapurple;
 
     & .nav-search {
-      & label{
+      & label {
         display: none;
       }
     }
@@ -603,21 +621,21 @@ body {
   .animeDetails-container {
     padding-bottom: 10px;
 
-    & .anDe-button{
-      top: 0;
+    & .anDe-button {
+      top: 110px;
       margin-left: 5px;
       padding: 5px 7px 0 7px;
       font-size: 30px;
     }
 
-    & .anDe-sub-container{
+    & .anDe-sub-container {
       margin-left: 2%;
       margin-right: 2%;
       padding-left: 20px;
       padding-right: 20px;
       word-wrap: break-word;
 
-      & .anDe-cabecera{
+      & .anDe-cabecera {
         padding-left: 20px;
         padding-right: 20px;
         margin-bottom: 10px;
@@ -627,16 +645,16 @@ body {
           font-size: 1.2rem;
         }
 
-        & div{
+        & div {
           flex-direction: column;
 
-          & .anDe-trailer{
+          & .anDe-trailer {
             max-width: 250px;
           }
         }
       }
 
-      & .anDe-body{
+      & .anDe-body {
         margin-top: 10px;
         padding-left: 20px;
         padding-right: 20px;

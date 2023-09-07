@@ -1,6 +1,6 @@
 import { ListAnime } from './components/listAnime.jsx'
 import { AnimeDetails } from './components/animeDetails.jsx'
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -27,10 +27,10 @@ function App() {
 
 
     return (
-        <div>
+        <div className='main'>
             <header className='header-content'>
                 <nav className='nav-container'>
-                    <h1>AnimeInfo</h1>
+                    <h1><Link to="/listAnime">AnimeInfo</Link></h1>
                     <div className='nav-search'>
                         <label>Buscar: </label>
                         <input type="text" onChange={(e) => setsearch(e.target.value)} />
