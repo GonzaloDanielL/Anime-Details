@@ -32,8 +32,7 @@ function App() {
                 <nav className='nav-container'>
                     <h1><Link to="/listAnime">AnimeInfo</Link></h1>
                     <div className='nav-search'>
-                        <label>Buscar: </label>
-                        <input type="text" onChange={(e) => setsearch(e.target.value)} />
+                        <input type="text" onChange={(e) => setsearch(e.target.value)} placeholder='Buscar'/>
                     </div>
                 </nav>
             </header>
