@@ -3,6 +3,9 @@
 <h1>Anime Details</h1>
 <p>Proyecto personal creado en react que lista animes y sus detalles haciendo uso de la api Jikan </p>
 <img src="public/img1.png"/>
+<br/>
+<img src="public/img2.png"/>
+
 
 Currently, two official plugins are available:
 
